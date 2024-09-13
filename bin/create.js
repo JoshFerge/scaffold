@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-const { execa } = require("execa");
-const path = require("path");
+import pkg from "execa";
+const { execa } = pkg;
+import path from "path";
 
 const repoUrl = "https://github.com/JoshFerge/scaffold.git";
 const projectName = process.argv[2] || "my-new-project";
-
 async function main() {
   console.log(`Creating new project: ${projectName}`);
 
