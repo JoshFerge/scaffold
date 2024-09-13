@@ -30,7 +30,6 @@ app.get("*", (c) => {
 function getAuthConfig(c: Context): AuthConfig {
   const adapter = new PrismaD1(c.env.DB);
   const prisma = new PrismaClient({ adapter });
-  console.log(c.env.AUTH_SECRET);
   return {
     adapter: PrismaAdapter(prisma),
     secret: c.env.AUTH_SECRET,
@@ -41,8 +40,6 @@ function getAuthConfig(c: Context): AuthConfig {
           password: { label: "Password", type: "password" },
         },
         async authorize(credentials) {
-          console.log("bacon!");
-          console.log(credentials);
           if (!credentials?.username || !credentials?.password) {
             return null;
           }
