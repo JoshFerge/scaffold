@@ -10,6 +10,7 @@ compatibility_flags = [ "nodejs_compat" ]
 
 [vars]
 # MY_VAR = "my-variable"
+# Auto Generated when you created your app
 AUTH_SECRET="<REPLACE_ME>"
 
 # [[kv_namespaces]]
