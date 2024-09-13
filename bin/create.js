@@ -42,6 +42,7 @@ async function main() {
     console.log("To get started, run:");
     console.log(`  cd ${projectName}`);
     console.log("  npm install");
+    console.log(`  npx wrangler d1 create ${projectName}-db`);
   } catch (error) {
     console.error("An error occurred:", error.message);
   }
