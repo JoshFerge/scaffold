@@ -15,6 +15,9 @@
     "db:prisma-generate": "prisma generate",
     "db:seed": "wrangler d1 execute scaffold-db --local --file=./migrations/seed.sql"
   },
+  "bin": {
+    "create-scaffold-app": "src/index.ts"
+  },
   "dependencies": {
     "@auth/core": "^0.34.2",
     "@auth/prisma-adapter": "^2.4.2",
@@ -24,7 +27,8 @@
     "@vitejs/plugin-react": "^4.3.1",
     "hono": "^4.6.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "execa": "^5.1.1"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240529.0",
