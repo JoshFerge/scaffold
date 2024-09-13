@@ -9,6 +9,8 @@ import Credentials from "@auth/core/providers/credentials";
 type Env = {
   Bindings: {
     MY_VAR: string;
+    AUTH_SECRET: string;
+    DB: D1Database;
   };
 };
 
@@ -27,7 +29,7 @@ app.get("*", (c) => {
   return renderer(c);
 });
 
-function getAuthConfig(c: Context): AuthConfig {
+function getAuthConfig(c: Context<Env>): AuthConfig {
   const adapter = new PrismaD1(c.env.DB);
   const prisma = new PrismaClient({ adapter });
   return {
