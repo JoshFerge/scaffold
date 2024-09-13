@@ -23,6 +23,9 @@ async function main() {
     // Remove the bin directory
     await execAsync(`rm -rf ${path.join(projectName, "bin")}`);
 
+    // Remove package-lock.json
+    await execAsync(`rm -f ${path.join(projectName, "package-lock.json")}`);
+
     // Replace "scaffold" with projectName in package.json and remove the bin object
     const packageJsonPath = path.join(projectName, "package.json");
     let packageJson = await fs.readFile(packageJsonPath, "utf-8");
@@ -41,6 +44,8 @@ async function main() {
       /AUTH_SECRET="<REPLACE_ME>"/,
       `AUTH_SECRET="${authSecret}"`
     );
+    // Replace "scaffold" with projectName in wrangler.toml
+    wranglerToml = wranglerToml.replace(/scaffold/g, projectName);
     await fs.writeFile(wranglerTomlPath, wranglerToml);
 
     console.log(`Project created successfully in ./${projectName}`);
