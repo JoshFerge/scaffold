@@ -20,11 +20,16 @@ async function main() {
     // Remove the .git folder to disassociate from the original repo
     await execAsync(`rm -rf ${path.join(projectName, ".git")}`);
 
-    // Replace "scaffold" with projectName in package.json
+    // Remove the bin directory
+    await execAsync(`rm -rf ${path.join(projectName, "bin")}`);
+
+    // Replace "scaffold" with projectName in package.json and remove the bin object
     const packageJsonPath = path.join(projectName, "package.json");
     let packageJson = await fs.readFile(packageJsonPath, "utf-8");
     packageJson = packageJson.replace(/scaffold/g, projectName);
-    await fs.writeFile(packageJsonPath, packageJson);
+    let packageObj = JSON.parse(packageJson);
+    delete packageObj.bin;
+    await fs.writeFile(packageJsonPath, JSON.stringify(packageObj, null, 2));
 
     // Generate a random AUTH_SECRET and update wrangler.toml
     const wranglerTomlPath = path.join(projectName, "wrangler.toml");
