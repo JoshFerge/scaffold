@@ -7,7 +7,13 @@
     "build": "vite build --mode client && vite build",
     "build-client": "vite build --mode client",
     "preview": "wrangler pages dev",
-    "deploy": "$npm_execpath run build && wrangler pages deploy"
+    "deploy": "$npm_execpath run build && wrangler pages deploy",
+    "db": "npm run db:prisma && npm run db:drop && npm run db:migrate",
+    "db:migrate": "wrangler d1 execute scaffold-db --local --file=./migrations/0001_init.sql && prisma generate",
+    "db:prisma": "npx prisma migrate diff --script --from-empty --to-schema-datamodel ./prisma/schema.prisma > migrations/0001_init.sql",
+    "db:drop": "wrangler d1 execute scaffold-db --local --file=./migrations/DROP.sql && touch migrations/0001_init.sql && rm migrations/0001_init.sql",
+    "db:prisma-generate": "prisma generate",
+    "db:seed": "wrangler d1 execute scaffold-db --local --file=./migrations/seed.sql"
   },
   "dependencies": {
     "@prisma/adapter-d1": "^5.19.1",
