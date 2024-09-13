@@ -8,8 +8,9 @@ binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "scaffold-db"
 database_id = "f467f639-2d73-4d04-9eaa-4c7cb303c8e7"
 
-# [vars]
+[vars]
 # MY_VAR = "my-variable"
+AUTH_SECRET="6DFjw1f+yHt5iEHtxKzkiOCbRYqTEQroU7zlLtdE490="
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"

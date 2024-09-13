@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
         pages(),
         devServer({
           adapter,
-          entry: "src/index.tsx",
+          entry: "src/index.ts",
         }),
       ],
     };

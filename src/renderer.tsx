@@ -1,22 +1,6 @@
-import { Hono } from "hono";
+import { Context } from "hono";
 import { renderToString } from "react-dom/server";
-
-type Env = {
-  Bindings: {
-    MY_VAR: string;
-  };
-};
-
-const app = new Hono<Env>();
-
-app.get("/api/clock", (c) => {
-  return c.json({
-    var: c.env.MY_VAR, // Cloudflare Bindings
-    time: new Date().toLocaleTimeString(),
-  });
-});
-
-app.get("*", (c) => {
+export function renderer(c: Context) {
   return c.html(
     renderToString(
       <html>
@@ -36,6 +20,4 @@ app.get("*", (c) => {
       </html>
     )
   );
-});
-
-export default app;
+}

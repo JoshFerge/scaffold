@@ -3,7 +3,7 @@ import { useState } from "react";
 export function App() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-6">Hello, Hono with aaa!</h1>
+      <h1 className="text-4xl font-bold mb-6">Hello, Hono with Scaffold!</h1>
       <h2 className="text-2xl font-semibold mb-4">Example of useState()</h2>
       <Counter />
       <h2 className="text-2xl font-semibold mt-8 mb-4">

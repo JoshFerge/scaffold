@@ -16,6 +16,9 @@
     "db:seed": "wrangler d1 execute scaffold-db --local --file=./migrations/seed.sql"
   },
   "dependencies": {
+    "@auth/core": "^0.34.2",
+    "@auth/prisma-adapter": "^2.4.2",
+    "@hono/auth-js": "^1.0.10",
     "@prisma/adapter-d1": "^5.19.1",
     "@prisma/client": "^5.19.1",
     "@vitejs/plugin-react": "^4.3.1",
