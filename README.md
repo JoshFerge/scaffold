@@ -1,24 +1,46 @@
-GOALS:
+# Scaffold.js App
 
-ALL IN ONE APPLICATION, BATTERIES INCLUDED!
+## Getting Started
+
+To run the application:
+
+1. Clone the repository
+2. Run `npm link`
+3. Execute `create-scaffold-app your-app`
+
+## Goals
+
+Create a TypeScript-based, all-in-one web app framework with batteries included!
+
+## Tech Stack
+
+- TypeScript
+- Prisma
+- Hono
+- Auth.js
+
+## Deployment Options
+
+- Cloudflare
+- TODO: Explore other options (Vercel / Supabase / Fly / VM)
+
+## TODO List
+
+- [ ] Evaluate React Router integration
+- [ ] Consider adding Shadcn
+- [ ] Implement basic layout
+- [ ] Improve login documentation (currently requires navigation to /api/auth/signin)
+- [ ] Implement email sending functionality
+- [ ] Develop admin interface
+- [ ] Explore debug toolbar options
+- [ ] Finalize Cloudflare deployment process
+- [ ] Set up deployment on a droplet
+- [ ] Implement database provider selection for non-Cloudflare deployments
+
+Note: Initial focus will be on Cloudflare-centric development.
 
 
-TDOO:
-
-React Router?
-Shadcn?
-basic layout?
-provide more documentation on login stuff. right now have to navigate to /api/auth/signin
-
-sending emails
-
-
-
-admin
-debug toolbar?
-Deploy on cloudflare
-Deploy on a droplet
-Select database provdier if not cloudflare.
-going to be very cloudflare centric to start
-
-
+## Decide on real name:
+- [ ] imperium.js
+- [ ] olympus.js
+- [ ] ...
